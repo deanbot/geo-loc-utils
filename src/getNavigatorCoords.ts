@@ -6,7 +6,6 @@ const config = {
     geolocation: 'geolocation not supported'
   }
 };
-const supported:{ geolocation?:boolean } = {};
 const cache: { coords?:coords } = {};
 
 // Get current location coordinates if supported by browser
@@ -15,13 +14,11 @@ export default function(
   options?: any,
   ignoreCache?: boolean
 ): Promise<coords> {
+  // check for browser support
+  const supported = 'geolocation' in navigator;
   return new Promise((resolve, reject) => {
-    // check for browser support
-    if (supported.geolocation === null) {
-      supported.geolocation = 'geolocation' in navigator;
-    }
 
-    if (!supported.geolocation) {
+    if (!supported) {
       reject(config.errorMessage.geolocation);
     }
 
