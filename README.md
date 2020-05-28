@@ -7,7 +7,7 @@ A small collection of geolocation/direction utilities.
 
 ### Install
 
-`npm install -D 'geo-loc-utils'`
+`npm install -D geo-loc-utils`
 
 ### getNavigatorCoords
 
