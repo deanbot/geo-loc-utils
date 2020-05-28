@@ -1,0 +1,9 @@
+.*
+**/tsconfig.json
+**/webpack.config.js
+**/index.html
+**/shrinkwrap.yaml
+**/*.ejs
+src
+
+node_modules

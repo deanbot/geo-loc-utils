@@ -1,0 +1,14 @@
+<html>
+  <head></head>
+  <body>
+    <script type="text/javascript">
+      geoLocUtils.getNavigatorCoords()
+        .then(function(position) {
+          console.log(position)
+        });
+        const windBearing = 342;
+        const windDirection = geoLocUtils.degreeToCardinal(windBearing);
+        console.log(windDirection);
+    </script>
+  </body>
+</html>

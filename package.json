@@ -1,10 +1,12 @@
 {
   "name": "geo-loc-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "js geolocation library - promise based method for retrieving navigator coords and other utils",
-  "main": "index.js",
-  "scripts": {
-    "build": "babel ./src/geo-loc-utils.js --out-file ./dist/geo-loc-utils.js"
+  "author": "Dean Verleger",
+  "license": "ISC",
+  "homepage": "https://github.com/deanbot/geo-loc-utils#readme",
+  "bugs": {
+    "url": "https://github.com/deanbot/geo-loc-utils/issues"
   },
   "repository": {
     "type": "git",
@@ -22,14 +24,37 @@
     "cardinal",
     "bearing"
   ],
-  "author": "Dean Verleger",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/deanbot/geo-loc-utils/issues"
+  "main": "lib/index.js",
+  "module": "libm/index.js",
+  "types": "lib/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "clean": "shx rm -rf lib libm",
+    "prepare": "npm run clean",
+    "prepublishOnly": "npm run build",
+    "build": "npm run build:umd && npm run build:esnext && npm run build:ts-defs",
+    "build:umd": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
+    "build:esnext": "tsc -p tsconfig.esnext.json",
+    "build:ts-defs": "tsc --declaration --emitDeclarationOnly",
+    "build:dev": "webpack --config ./webpack.config.js",
+    "build:dev-watch": "webpack --config ./webpack.config.js --progress --colors --watch",
+    "serve": "http-server ./lib -o",
+    "start": "npm run clean && npm run build:dev && npm-run-all --parallel build:dev-watch serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/deanbot/geo-loc-utils#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.0",
-    "babel-preset-env": "^1.3.2"
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "fs-extra": "^7.0.1",
+    "html-webpack-plugin": "^4.3.0",
+    "http-server": "^0.12.3",
+    "npm-run-all": "^4.1.5",
+    "shx": "^0.3.2",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
