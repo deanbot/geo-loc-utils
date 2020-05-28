@@ -1,6 +1,6 @@
 {
   "name": "geo-loc-utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "js geolocation library - promise based method for retrieving navigator coords and other utils",
   "author": "Dean Verleger",
   "license": "ISC",
