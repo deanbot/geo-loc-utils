@@ -17,8 +17,6 @@ params:
 
 ```js
 import { getNavigatorCoords } from 'geo-loc-utils';
-// or
-import getNavigatorCoords from 'geo-loc-utils/degreeToCardinal'
 
 // prompts browser to allow location access
 getNavigatorCoords()
@@ -33,8 +31,6 @@ params:
 
 ```js
 import { degreeToCardinal } from 'geo-loc-utils';
-// or
-import degreeToCardinal from 'geo-loc-utils/degreeToCardinal';
 
 const windBearing = 342;
 const windDirection = degreeToCardinal(windBearing);

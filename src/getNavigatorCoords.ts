@@ -12,8 +12,8 @@ const cache: { coords?:coords } = {};
 // Get current location coordinates if supported by browser
 // Ref: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
 export default function(
-  options: any,
-  ignoreCache: boolean = false
+  options?: any,
+  ignoreCache?: boolean
 ): Promise<coords> {
   return new Promise((resolve, reject) => {
     // check for browser support
